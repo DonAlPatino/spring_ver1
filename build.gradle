@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Стартер для web-сервиса
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Стартер для валидации
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Стартер jdbc
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // Библиотеки Liquibase
+    implementation 'org.liquibase:liquibase-core:4.9.1'
+
+    // Библиотеки H2
+    implementation 'com.h2database:h2:2.1.212'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
